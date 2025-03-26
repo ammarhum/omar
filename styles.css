@@ -1,0 +1,1668 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --card-bg: white;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --urgent-color: #dc3545;
+    --soon-color: #ffc107;
+    --upcoming-color: #28a745;
+    --distant-color: #6c757d;
+    --past-color: #6610f2;
+    --hover-bg: #f1f1f1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+/* Navigation styles */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    padding: 10px 0;
+    background-color: var(--bg-color);
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #1e2b3c;
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background-color: #1e2b3c;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* PRAYER TIMES STYLES */
+
+/* Prayer-specific styles */
+.masjid-container {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.masjid-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.mosque-body {
+    fill: #2c3e50;
+}
+
+.mosque-dome {
+    fill: #2c3e50;
+}
+
+.mosque-minaret {
+    fill: #2c3e50;
+}
+
+.mosque-window {
+    fill: #f5f6fa;
+    opacity: 0.7;
+}
+
+.countdown-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.countdown-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.time {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0.8rem 0;
+}
+
+.progress-container {
+    width: 100%;
+    background: #eee;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), #2ecc71);
+    transition: width 1s ease;
+}
+
+.prayer-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Prayer times grid */
+#prayer-times {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#prayer-times h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-align: center;
+}
+
+.current-date {
+    text-align: center;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.prayer-times-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.prayer-time-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+}
+
+.prayer-time-item.next-prayer {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 4px solid var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prayer-time-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.prayer-name {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.prayer-time {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+}
+
+/* EXAM TIMETABLE STYLES */
+
+/* Mobile Card Layout */
+.exam-table-container {
+    padding: 0 10px;
+    width: 100%;
+}
+
+/* Update exam timetable styles for better organization and appearance */
+.subject-table {
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.subject-table caption {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.subject-table th, .subject-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.subject-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+}
+
+.subject-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.subject-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.exam-name {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.exam-date {
+    font-size: 14px;
+    color: var(--accent-color);
+}
+
+.days-left {
+    text-align: right;
+    font-size: 14px;
+    color: #666;
+}
+
+.days-left-value {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    min-width: 60px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.days-urgent {
+    background-color: #dc3545;
+    color: white;
+}
+
+.days-soon {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.days-upcoming {
+    background-color: #28a745;
+    color: white;
+}
+
+.days-distant {
+    background-color: #6c757d;
+    color: white;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.save-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    z-index: 1000;
+}
+
+.save-message.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.save-message.error {
+    background-color: var(--urgent-color);
+}
+
+/* SHARED STYLES */
+
+.view {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease;
+}
+
+.view.active {
+    opacity: 1;
+    display: block;
+}
+
+/* Footer styles */
+footer {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 1rem auto;
+    }
+
+    .time {
+        font-size: 2.2rem;
+    }
+
+    .prayer-times-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .nav-buttons {
+        padding: 10px;
+    }
+    
+    .nav-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .subtitle {
+        font-size: 14px;
+    }
+    
+    .subject-table caption {
+        font-size: 18px;
+        padding: 12px;
+    }
+    
+    .exam-name, .exam-date {
+        font-size: 15px;
+    }
+    
+    .btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prayer-times-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    
+    h1 {
+        font-size: 22px;
+    }
+    
+    .subtitle {
+        font-size: 13px;
+    }
+    
+    .subject-table caption {
+        font-size: 16px;
+    }
+    
+    .exam-name, .exam-date {
+        font-size: 14px;
+    }
+    
+    .btn {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+}
+
+/* Enhanced Animations and Visual Effects */
+@keyframes gentle-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slide-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes subtle-fade-in {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Improved prayer time display */
+.countdown-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.time {
+    transition: color 0.3s ease;
+}
+
+.countdown-container:hover .time {
+    color: var(--accent-color);
+}
+
+/* Enhanced progress bar */
+.progress-bar {
+    background: linear-gradient(90deg, 
+        var(--accent-color), 
+        var(--primary-color), 
+        var(--accent-color));
+    background-size: 200% 100%;
+    animation: slide-gradient 3s ease infinite;
+    transition: width 0.8s ease-in-out;
+}
+
+/* Prayer times grid improvements */
+.prayer-times-grid {
+    transition: all 0.3s ease;
+}
+
+.prayer-time-item {
+    transition: all 0.3s ease;
+}
+
+.prayer-time-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prayer-time-item.current {
+    animation: gentle-pulse 2s infinite;
+}
+
+/* Enhanced UI elements */
+.nav-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-btn:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-btn.active:after {
+    transform: scaleX(1);
+}
+
+/* Improved toggle and theme buttons */
+.toggle-btn {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    transform: rotate(15deg);
+}
+
+.theme-dropdown {
+    transition: all 0.3s ease;
+}
+
+.theme-dropdown:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* Exam section improvements */
+.exam-card {
+    transition: all 0.3s ease;
+}
+
+.exam-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Entrance animations */
+.view {
+    animation: subtle-fade-in 0.5s ease-out;
+}
+
+/* Improved masjid SVG */
+.masjid-svg {
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+.masjid-container:hover .masjid-svg {
+    transform: scale(1.02);
+    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.15));
+}
+
+/* Enhanced text elements */
+h1, h2, h3 {
+    position: relative;
+    display: inline-block;
+}
+
+h1:after, h2:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+h1:hover:after, h2:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+/* Focus states */
+button:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+/* Improved container styling */
+#prayer-times, .exam-container, .subjects-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#prayer-times:hover, .exam-container:hover, .subjects-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Hijri date display */
+.hijri-date {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 1em;
+    color: var(--accent-color);
+    direction: rtl;
+    font-family: 'Amiri', 'Scheherazade New', serif;
+}
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(52, 152, 219, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--accent-color);
+    animation: spinner 1s ease-in-out infinite;
+    margin: 10px auto;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+/* Clear search button */
+.search-container {
+    position: relative;
+    margin: 15px auto 25px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-container.search-ready {
+    border: 1px solid #e1e1e1;
+}
+
+.search-container.has-text {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-color);
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 40px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+}
+
+.clear-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+    color: var(--text-color);
+}
+
+.search-container.has-text .clear-search {
+    display: block;
+}
+
+/* Test button styling */
+.confetti-test-btn,
+.hidden-dev-button {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    z-index: -999 !important;
+}
+
+.confetti-test-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.confetti-test-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Refresh button for exam dates */
+.refresh-dates {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.refresh-dates:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.refresh-dates i {
+    margin-right: 8px;
+}
+
+/* Help section */
+.help-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-align: left;
+    font-size: 14px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.help-section.show {
+    max-height: 500px;
+    padding: 20px;
+    margin: 20px 0;
+    opacity: 1;
+}
+
+.help-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.help-title h3 {
+    margin: 0;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.help-content {
+    color: #666;
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.help-section.show .help-content {
+    height: auto;
+    opacity: 1;
+}
+
+.help-content ul {
+    padding-left: 20px;
+}
+
+.help-content li {
+    margin-bottom: 8px;
+}
+
+.help-toggle {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 13px;
+    color: var(--primary-color);
+    cursor: pointer;
+    margin: 5px auto 15px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.help-toggle:hover {
+    background-color: #e6e6e6;
+    transform: translateY(-2px);
+}
+
+/* PWA splash screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.splash-screen.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.splash-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.splash-title {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.splash-subtitle {
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Floating action button */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 100;
+    transform: scale(0);
+    transition: transform 0.3s ease-out, background-color 0.2s;
+    opacity: 0;
+}
+
+.floating-button.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.floating-button:hover {
+    background-color: var(--accent-color);
+}
+
+.floating-button .refresh-icon {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.floating-button.refreshing .refresh-icon {
+    animation: spin 1s linear;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.floating-button.refreshing {
+    animation: pulse 0.6s infinite alternate;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    pointer-events: none;
+}
+
+.floating-button .tooltip {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+}
+
+.floating-button:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Keyboard shortcuts */
+.keyboard-shortcuts {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.keyboard-shortcuts h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.keyboard-shortcuts ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.keyboard-shortcuts li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.key {
+    display: inline-block;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-right: 5px;
+    font-family: monospace;
+    font-size: 0.9em;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+/* Theme options */
+.theme-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    justify-content: center;
+}
+
+.theme-color {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+    border: 2px solid transparent;
+}
+
+.theme-color:hover {
+    transform: scale(1.1);
+}
+
+.theme-color.active {
+    border-color: #333;
+}
+
+.theme-color .tooltip {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+}
+
+.theme-color:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+#shortcuts-overlay .key {
+    font-size: 14px;
+    padding: 3px 8px;
+    margin-right: 15px;
+}
+
+/* iOS Install Banner */
+.ios-install-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    z-index: 999;
+    display: none;
+}
+
+.ios-install-content {
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.ios-close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.ios-share-icon {
+    display: inline-block;
+    font-weight: bold;
+    padding: 0 3px;
+}
+
+/* Updated CSS with dark mode support and new UI elements */
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    text-align: center;
+    flex-grow: 1;
+}
+
+.controls-top {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.icon-button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.icon-button:hover {
+    transform: scale(1.1);
+}
+
+.icon-button:active {
+    transform: scale(0.95);
+}
+
+/* View options */
+.view-options {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    gap: 10px;
+}
+
+.view-btn {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.view-btn:hover {
+    background-color: var(--hover-bg);
+}
+
+.view-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Help section */
+.help-section {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    margin: 10px 0 20px;
+    padding: 15px;
+    display: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.help-section.show {
+    display: block;
+}
+
+.help-title {
+    margin-bottom: 10px;
+}
+
+.help-content {
+    font-size: 0.9rem;
+}
+
+.help-content ul {
+    padding-left: 20px;
+}
+
+/* Search container */
+.search-container {
+    position: relative;
+    margin: 15px auto 25px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 40px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+}
+
+.clear-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+    color: var(--text-color);
+}
+
+.search-container.has-text .clear-search {
+    display: block;
+}
+
+/* Table styles */
+.exam-table-container {
+    margin: 20px 0;
+}
+
+.table-container {
+    margin-bottom: 20px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.subject-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.subject-table caption {
+    padding: 12px;
+    font-weight: 600;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.1rem;
+}
+
+.subject-table th, .subject-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.subject-table th {
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.subject-table th:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.subject-table th.sorted:after {
+    content: "↓";
+    position: absolute;
+    right: 8px;
+}
+
+.subject-table th.sorted-desc:after {
+    content: "↑";
+}
+
+.subject-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.subject-table tbody tr:hover {
+    background-color: var(--hover-bg);
+}
+
+/* Days left indicators */
+.days-left-value {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    min-width: 60px;
+}
+
+.days-urgent {
+    background-color: var(--urgent-color);
+    color: white;
+}
+
+.days-soon {
+    background-color: var(--soon-color);
+    color: #212529;
+}
+
+.days-upcoming {
+    background-color: var(--upcoming-color);
+    color: white;
+}
+
+.days-distant {
+    background-color: var(--distant-color);
+    color: white;
+}
+
+.days-past {
+    background-color: var(--past-color);
+    color: white;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.action-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.action-btn:active {
+    transform: translateY(1px);
+}
+
+/* Floating action buttons */
+.floating-action-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.fab {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 3px 8px var(--shadow-color);
+    border: none;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+.fab.show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+}
+
+.fab:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.fab:active {
+    transform: scale(0.95);
+}
+
+.refresh-icon {
+    display: inline-block;
+    transition: transform 0.5s ease;
+}
+
+.refreshing .refresh-icon {
+    animation: rotate 0.8s linear;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-top: 30px;
+}
+
+/* Calendar view */
+.calendar-container {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    display: block;
+    width: 100%;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.calendar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.calendar-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.calendar-nav button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.calendar-nav button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.calendar-day {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 5px;
+    min-height: 80px;
+    background-color: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-day.empty {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.calendar-day.has-exam {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.calendar-day-header {
+    text-align: center;
+    padding: 5px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.calendar-day-number {
+    text-align: right;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 5px;
+    padding: 2px 5px;
+}
+
+.calendar-event {
+    font-size: 0.8rem;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 3px 5px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+/* Export dropdown */
+.export-dropdown {
+    display: none;
+}
+
+.export-options {
+    display: none;
+}
+
+.export-option {
+    display: none;
+}
+
+/* Mobile calendar adjustments */
+@media (max-width: 768px) {
+    .calendar-grid {
+        gap: 2px;
+    }
+    
+    .calendar-day {
+        min-height: 60px;
+        padding: 2px;
+    }
+    
+    .calendar-day-header {
+        padding: 3px;
+        font-size: 0.8rem;
+    }
+    
+    .calendar-day-number {
+        font-size: 0.8rem;
+        padding: 1px 3px;
+    }
+    
+    .calendar-event {
+        font-size: 0.7rem;
+        padding: 2px 3px;
+        margin-bottom: 2px;
+    }
+    
+    .calendar-title {
+        font-size: 1rem;
+    }
+    
+    .calendar-nav button {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Fix chronological view in tab */
+#chronological-container {
+    width: 100%;
+}
+
+/* Highlight for search results */
+tr.highlight {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Past exams styling */
+tr.past-exam {
+    opacity: 0.7;
+}
+
+tr.past-exam td {
+    text-decoration: line-through;
+    color: var(--text-color);
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    margin: 20px 0;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+/* Restore mobile optimizations */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .view-options {
+        flex-wrap: wrap;
+    }
+    
+    .subject-table th, .subject-table td {
+        padding: 10px;
+    }
+    
+    .subject-table th:nth-child(3), 
+    .subject-table td:nth-child(3) {
+        text-align: center;
+    }
+    
+    .icon-button, .fab {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Shortcuts overlay */
+#shortcuts-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+} 
